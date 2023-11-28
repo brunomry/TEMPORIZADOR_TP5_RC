@@ -1,23 +1,280 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta
-  name="description"
-  content="Resolución de Trabajo Práctico N°5 de RollingCode - DOM (Document Object Model)"
-/>
-<meta
-  name="keywords"
-  content="trabajo practico 5, modeo de objetos del documento, DOM, Bootstrap5, soluciones, javascript"
-/>
-<meta name="author" content="Bruno Madozzo Romay" />
-  <title>EJERCICIO N°6 | TRABAJO PRÁCTICO N°5 | ROLLING CODE SCHOOL</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="./CSS/styles.css">
-</head>
-<body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script src="./JS/ejercicio1-tp5.js"></script>
-</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Resolución de Trabajo Práctico N°5 de RollingCode - DOM (Document Object Model) - BOM (Browser Object Model)"
+    />
+    <meta
+      name="keywords"
+      content="trabajo practico 5, DOM, BOM, Bootstrap5, CSS, soluciones, Javascript"
+    />
+    <meta name="author" content="Bruno Madozzo Romay" />
+    <title>EJERCICIO N°5 | TRABAJO PRÁCTICO N°5 | ROLLING CODE SCHOOL</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&family=Rubik:ital,wght@1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./CSS/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md py-4">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold text-secondary" href="./index.html"
+            >Trabajo Práctico 5</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse text-center"
+            id="navbarNavDropdown"
+          >
+            <ul class="navbar-nav w-100 d-flex justify-content-center fs-5">
+              <li class="nav-item px-2">
+                <a class="nav-link active text-secondary" href="./index.html"
+                  >EJERCICIO N°6</a
+                >
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link text-secondary" href="./sobreMi.html">SOBRE MÍ</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="py-4">
+      <section class="container mt-2">
+        <h1 class="text-center mb-3 fw-bold text-white">
+          Temporizador online
+        </h1>
+        <div class="d-flex justify-content-center align-items-center rounded-circle border-5 border-primary containerConteo m-auto" id="containerConteo">
+          <h2 class="display-1 fw-bold text-white">00:00:00</h2>
+        </div>
+        <div class="d-flex flex-column gap-2 justify-content-md-center align-items-md-center containerTemporizador m-auto p-2 p-md-4 rounded-2">    
+          <p class="text-white text-start fw-bold mt-3 lead">Establecer un temporizador</p>
+          <div class="container d-flex gap-1 gap-sm-4 justify-content-center align-items-center rounded-2 text-center text-white" id="containerTemporizador">
+            <div class="mb-3 w-100">
+              <label for="horas" class="form-label d-block">Horas</label>
+              <select id="horas" class="w-100 py-3 rounded-3 bgSelect px-2">
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+              </select>
+            </div>
+            <div class="mb-3 w-100">
+              <label for="minutos" class="form-label d-block">Minutos</label>
+              <select id="minutos" class="w-100 py-3 rounded-3 bgSelect px-2">
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+              </select>
+            </div>
+            <div class="mb-3 w-100">
+              <label for="segundos" class="form-label d-block">Segundos</label>
+              <select id="segundos" class="w-100 py-3 rounded-3 bgSelect px-2">
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+              </select>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap gap-3 containerButtons text-dark mt-5">
+            <button class="btn btnIniciar rounded-3 fw-bold fs-5" id="btnIniciar">Iniciar Temporizador</button>
+            <button class="btn btnPausar rounded-3 fw-bold fs-5" id="btnPausar">Pausar</button>
+            <button class="btn btnContinuar rounded-3 fw-bold fs-5" id="btnContinuar">Continuar</button>
+            <button class="btn btnRestablecer rounded-3 fw-bold fs-5" id="btnRestablecer">Restablecer</button>
+          </div>
+        </div>
+      </section>
+      <section class="container text-white mt-5">
+        <h4 class="fw-bold mb-3">¿Qué es un temporizador online?</h4>
+        <p>Un temporizador online es un temporizador en el ordenador fácil de usar que se puede utilizar para mostrar una cuenta atrás de gran tamaño en la pantalla. Puede programar un temporizador para horas, minutos o segundos de forma rápida y fácil desde cualquier ordenador o dispositivo móvil.</p>
+        <h4 class="fw-bold mb-3 mt-5">¿Cómo puedo programar un temporizador online?</h4>
+        <p>Utilizar el temporizador es muy fácil y puede ponerlo en marcha con unos sencillos pasos:</p>
+        <ul>
+          <li>Establezca el número de <span class="fw-bold">Horas</span>,  <span class="fw-bold">Minutos</span> y <span class="fw-bold">Segundos</span> durante los que quiere que funcione el temporizador o elija un temporizador de minutos o segundos de entre las opciones preestablecidas que aparecen en la lista.</li>
+          <li>Haga clic en <span class="fw-bold">Iniciar temporizador</span> para poner en marcha el temporizador.</li>
+        </ul>
+        <h4 class="fw-bold mb-3 mt-5">¿Cómo funciona el temporizador online?</h4>
+        <p>Una vez programado, el temporizador iniciará la cuenta atrás.</p>
+        <p>Mientras el reloj temporizador está en marcha, puede:</p>
+        <ul>
+          <li>Pulse <span class="fw-bold">Pausar</span> para pausar temporalmente el temporizador.</li>
+          <li>Pulse <span class="fw-bold">Continuar</span> para seguir con el temporizador.</li>
+          <li>Pulse <span class="fw-bold">Restablecer</span> para detener el temporizador y programar uno nuevo.</li>
+        </ul>
+        <h4 class="fw-bold mb-3 mt-5">¿Dónde puedo utilizar un temporizador online?</h4>
+        <p>Puede crear un temporizador en cualquier ordenador o dispositivo móvil que tenga conexión a Internet o Wi-Fi. Como el reloj temporizador muestra una cuenta atrás grande en la pantalla, es ideal para utilizarlo en clase o mientras cocina, estudia, practica para un examen o hace ejercicio.</p>
+      </section>
+    </main>
+    <footer class="p-3 mt-5">
+      <div class="text-light text-center">
+        <p>
+          @RollingCodeSchool. Comisión 73i. 2023 | Diseñado por Bruno Madozzo
+        </p>
+      </div>
+    </footer>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+    ></script>
+    <script src="./JS/ejercicio5-tp5.js"></script>
+  </body>
 </html>
