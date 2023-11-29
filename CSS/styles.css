@@ -41,7 +41,7 @@ main{
 }
 
 .containerButtons .btnPausar{
-  width: 48%;
+  width: 45%;
   background-color: #f8c453;
   padding: 10px 0px;
 }
@@ -51,7 +51,7 @@ main{
 }
 
 .containerButtons .btnContinuar{
-  width: 48%;
+  width: 45%;
   background-color: #2ccab8;
   padding: 10px 0px;
 }
@@ -61,7 +61,7 @@ main{
 }
 
 .containerButtons .btnRestablecer{
-  width: 48%;
+  width: 45%;
   background-color: #e65168;
   padding: 10px 0px;
 }
