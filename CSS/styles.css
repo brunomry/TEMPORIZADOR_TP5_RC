@@ -74,6 +74,27 @@ footer{
   border-top: .1px solid #525151;
 }
 
+/*sobre mi*/
+.imageProfile{
+  width: 425px;
+  height: 425px;
+}
+
+.imageProfile:hover{
+  width: 500px;
+  height: 500px;
+  transition: .3s ease-in-out;
+}
+
+a .socialIcon{
+  font-size: 40px;
+}
+
+a .socialIcon:hover{
+  font-size: 50px;
+  transition: .3s ease-in-out;
+}
+
 @media all and (min-width:576px){
   .containerConteo{
     width: 25rem;
