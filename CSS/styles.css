@@ -11,14 +11,14 @@ main{
 }
 
 .containerConteo{
-  width: 240px;
-  height: 240px;
+  width: 15rem;
+  height: 15rem;
   border: 15px solid red;
 }
 
 .containerTemporizador{
   width: 100%;
-  min-width: 100px;
+  min-width: 6.25rem;
 }
 
 .bgSelect{
@@ -76,8 +76,8 @@ footer{
 
 @media all and (min-width:576px){
   .containerConteo{
-    width: 500px;
-    height: 500px;
+    width: 25rem;
+    height: 25rem;
   }
 
   .containerTemporizador{
