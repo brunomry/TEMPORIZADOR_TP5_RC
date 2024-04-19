@@ -87,13 +87,19 @@ footer{
   transition: .7s;
 }
 
-a .socialIcon{
+a .github{
   font-size: 40px;
-  transition: 0.7s;
+  color: #acadb3;
+  transition: 1s;
 }
 
-a .socialIcon:hover{
-  font-size: 50px;
+a .linkedIn{
+  font-size: 40px;
+  transition: 1s;
+}
+
+a:hover{
+  transform: scale(1.1);
   transition: 0.7s;
 }
 
