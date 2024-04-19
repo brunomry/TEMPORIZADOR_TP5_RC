@@ -78,21 +78,23 @@ footer{
 .imageProfile{
   width: 425px;
   height: 425px;
+  transition: .7s;
 }
 
 .imageProfile:hover{
   width: 500px;
   height: 500px;
-  transition: .3s ease-in-out;
+  transition: .7s;
 }
 
 a .socialIcon{
   font-size: 40px;
+  transition: 0.7s;
 }
 
 a .socialIcon:hover{
   font-size: 50px;
-  transition: .3s ease-in-out;
+  transition: 0.7s;
 }
 
 @media all and (min-width:576px){
