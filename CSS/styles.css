@@ -74,30 +74,6 @@ footer{
   border-top: .1px solid #525151;
 }
 
-/*sobre mi*/
-.imageProfile{
-  width: 425px;
-  height: 425px;
-  transition: .7s;
-}
-
-.imageProfile:hover{
-  width: 500px;
-  height: 500px;
-  transition: .7s;
-}
-
-a .github{
-  font-size: 40px;
-  color: #acadb3;
-  transition: 1s;
-}
-
-a .linkedIn{
-  font-size: 40px;
-  transition: 1s;
-}
-
 .nav-link,
 .navbar-brand{
   transition: 1s;
