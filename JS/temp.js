@@ -9,11 +9,6 @@ const selectHoras = document.getElementById('horas');
 const selectMinutos = document.getElementById('minutos');
 const selectSegundos = document.getElementById('segundos');
 const parrafoEstablecerTemp = document.querySelectorAll('p')[0];
-
-btnPausar.hidden = true;
-btnContinuar.hidden = true;
-btnRestablecer.hidden = true;
-
 let contadorSegundos;
 let contadorMinutos;
 let contadorHoras;
@@ -21,13 +16,16 @@ let hora;
 let minuto;
 let segundo;
 
+btnPausar.hidden = true;
+btnContinuar.hidden = true;
+btnRestablecer.hidden = true;
+
 const concatenar = i => i < 10 ? "0" + i : i;
 
 const mostrar = () => {
   hora = concatenar(contadorHoras);
   minuto = concatenar(contadorMinutos);
   segundo = concatenar(contadorSegundos);
- 
   h2.innerHTML = `<h2 class="display-3 fw-bold text-white">${hora} : ${minuto} : ${segundo}</h2>`;
 }
 
@@ -52,7 +50,6 @@ const comenzarTemporizador = () => {
     minuto = concatenar(contadorMinutos);
     contadorSegundos = 59;
     segundo = concatenar(contadorSegundos);
-
     h2.innerHTML = `<h2 class="display-3 fw-bold text-white">${hora} : ${minuto} : ${segundo}</h2>`;
   }
 
@@ -66,68 +63,64 @@ const comenzarTemporizador = () => {
   hora = concatenar(contadorHoras);
   minuto = concatenar(contadorMinutos);
   segundo = concatenar(contadorSegundos);
-
   h2.innerHTML = `<h2 class="display-3 fw-bold text-white">${hora} : ${minuto} : ${segundo}</h2>`
 }
 
-btnIniciar.addEventListener('click', () => {
-  let opcionHora = selectHoras.value;
-  let opcionMinuto = selectMinutos.value;
-  let opcionSegundo = selectSegundos.value;
-
-  contadorSegundos = opcionSegundo;
-  contadorMinutos = opcionMinuto;
-  contadorHoras = opcionHora;
-
-  if(contadorSegundos > 0) contadorSegundos++;
-
-  if(contadorHoras > 0 || contadorMinutos > 0 || contadorSegundos > 0){
-    btnIniciar.hidden = true;
-    btnPausar.hidden = false;
-    btnRestablecer.hidden = false;
-    btnRestablecer.textContent = 'Restablecer';
-    btnRestablecer.classList.remove('bg-success');
-    parrafoEstablecerTemp.hidden = true;
-    containerSelects.className = 'd-none';
+//delegacion de eventos
+document.addEventListener('click', e => {
+  if(e.target.matches('#btnIniciar')){ 
+    contadorSegundos = selectHoras.value;
+    contadorMinutos = selectMinutos.value;
+    contadorHoras = selectSegundos.value;
   
-    temporizador = setInterval(() => {
-        mostrar();
-        comenzarTemporizador();
-    },1000);
+    if(contadorSegundos > 0) contadorSegundos++;
+  
+    if(contadorHoras > 0 || contadorMinutos > 0 || contadorSegundos > 0){
+      btnIniciar.hidden = true;
+      btnPausar.hidden = false;
+      btnRestablecer.hidden = false;
+      btnRestablecer.textContent = 'Restablecer';
+      btnRestablecer.classList.remove('bg-success');
+      parrafoEstablecerTemp.hidden = true;
+      containerSelects.className = 'd-none';
+    
+      temporizador = setInterval(() => {
+          mostrar();
+          comenzarTemporizador();
+      },1000);
+    }
   }
-});
 
-btnPausar.addEventListener('click', () => {
-  btnPausar.hidden = true;
-  btnContinuar.hidden = false;
+  if(e.target.matches('#btnPausar')){
+    btnPausar.hidden = true;
+    btnContinuar.hidden = false; 
+    clearInterval(temporizador);
+  }
 
-  clearInterval(temporizador);
-});
+  if(e.target.matches('#btnContinuar')){
+    btnContinuar.hidden = true;
+    btnPausar.hidden = false; 
+    temporizador = setInterval(() => comenzarTemporizador(),1000);
+  }
 
-btnContinuar.addEventListener('click', () => {
-  btnContinuar.hidden = true;
-  btnPausar.hidden = false;
-
-  temporizador = setInterval(() => comenzarTemporizador(),1000);
-});
-
-btnRestablecer.addEventListener('click', () => {
-  btnIniciar.hidden = false;
-  parrafoEstablecerTemp.hidden = false;
-  containerSelects.className = 'container d-flex gap-1 gap-sm-4 justify-content-center align-items-center rounded-2 text-center text-white';
-  btnPausar.hidden = true;
-  btnContinuar.hidden = true;
-  btnRestablecer.hidden = true;
-
-  contadorSegundos = 0;
-  contadorMinutos = 0;
-  contadorHoras = 0;
-
-  hora = concatenar (contadorHoras);
-  minuto = concatenar(contadorMinutos);
-  segundo = concatenar(contadorSegundos);
-
-  clearInterval(temporizador);
- 
-  h2.innerHTML = `<h2 class="display-3 fw-bold text-white"> ${hora} : ${minuto} : ${segundo}</h2>`;
-});
+  if(e.target.matches('#btnRestablecer')){
+    btnIniciar.hidden = false;
+    parrafoEstablecerTemp.hidden = false;
+    containerSelects.className = 'container d-flex gap-1 gap-sm-4 justify-content-center align-items-center rounded-2 text-center text-white';
+    btnPausar.hidden = true;
+    btnContinuar.hidden = true;
+    btnRestablecer.hidden = true;
+  
+    contadorSegundos = 0;
+    contadorMinutos = 0;
+    contadorHoras = 0;
+  
+    hora = concatenar (contadorHoras);
+    minuto = concatenar(contadorMinutos);
+    segundo = concatenar(contadorSegundos);
+  
+    clearInterval(temporizador);
+   
+    h2.innerHTML = `<h2 class="display-3 fw-bold text-white"> ${hora} : ${minuto} : ${segundo}</h2>`;
+  }
+})
