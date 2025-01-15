@@ -43,7 +43,7 @@ const comenzarTemporizador = () => {
     h2.innerHTML = `<h2 class="display-3 fw-bold text-white">${hora} : ${minuto} : ${segundo}</h2>`;
   }
 
-  if(contadorMinutos == 0 && contadorSegundos == 0 & contadorHoras > 0){
+  if(contadorMinutos == 0 && contadorSegundos == 0 && contadorHoras > 0){
     contadorHoras--;
     hora = concatenar(contadorHoras);
     contadorMinutos = 59;
@@ -69,9 +69,9 @@ const comenzarTemporizador = () => {
 //delegacion de eventos
 document.addEventListener('click', e => {
   if(e.target.matches('#btnIniciar')){ 
-    contadorSegundos = selectHoras.value;
+    contadorHoras = selectHoras.value;
     contadorMinutos = selectMinutos.value;
-    contadorHoras = selectSegundos.value;
+    contadorSegundos = selectSegundos.value;
   
     if(contadorSegundos > 0) contadorSegundos++;
   
